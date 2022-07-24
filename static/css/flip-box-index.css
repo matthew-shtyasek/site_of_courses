@@ -1,12 +1,10 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .flip-box {
+  margin-right: 2%;
+  float: left;
   background-color: transparent;
   width: 300px;
   height: 200px;
-  border: 1px solid #f1f1f1;
+  /*border: 1px solid #f1f1f1;*/
   perspective: 1000px;
 }
 
@@ -29,15 +27,23 @@ body {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-top: 2pt;
 }
 
 .flip-box-front {
   background-color: #bbb;
   color: black;
+  text-align: center;
 }
 
 .flip-box-back {
+  display: flex;
   background-color: dodgerblue;
   color: white;
   transform: rotateX(180deg);
+  font-size: small;
+  text-align: left;
+  align-items: center;
 }
