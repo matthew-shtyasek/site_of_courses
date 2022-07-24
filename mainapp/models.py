@@ -14,7 +14,7 @@ class ProgrammingLanguage(models.Model):
 
 
 class Technology(models.Model):
-    programming_languages = models.ManyToManyField(ProgrammingLanguage, default=1)
+    programming_languages = models.ManyToManyField(ProgrammingLanguage)
 
     name = models.CharField(max_length=64)
     desc = models.TextField(blank=True)
@@ -27,9 +27,9 @@ class Technology(models.Model):
         verbose_name_plural = 'Технологии (Фреймворки)'
 
 
-class Course:
+class Course(models.Model):
     programming_languages = models.ManyToManyField(ProgrammingLanguage)
-    technologies = models.ManyToManyField(Technology, default=1)
+    technologies = models.ManyToManyField(Technology, blank=True)
 
     name = models.CharField(max_length=64)
     desc = models.TextField(blank=True)
