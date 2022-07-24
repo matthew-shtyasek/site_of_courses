@@ -1,0 +1,20 @@
+div.top-block {
+    height: 18vh;
+    background-color: blue;
+    background-image: linear-gradient(to right, deepskyblue, darkblue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-block h1 {
+    color: white;
+    font-size: 5vh;
+    font-family: Calibri, serif;
+    transition: 1000ms;
+}
+
+.top-block h1:hover {
+    color: lightblue;
+    transition: 1000ms;
+}
