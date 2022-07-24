@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from mainapp.models import ProgrammingLanguage, Technology, Course
+
+admin.site.register(ProgrammingLanguage)
+admin.site.register(Technology)
+admin.site.register(Course)
