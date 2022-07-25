@@ -20,7 +20,7 @@
 <div class="main-menu">
     <ul>
       <li>
-          <a href="/">Главная</a>
+          <a href="/">{{ main_menu_button_1_text|default:'главная'|capfirst }}</a>
       </li>
     </ul>
 </div>
@@ -28,9 +28,7 @@
 
 
 <div class="top-block">
-    {% block top-block-content %}
-        <h1>Курсы по программированию</h1>
-    {% endblock %}
+    <h1>{{ top_block_text|default:'категории курсов'|capfirst }}</h1>
 </div>
 
 {% block content %}

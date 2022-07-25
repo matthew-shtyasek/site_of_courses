@@ -1,21 +1,25 @@
 {% extends 'mainapp/base.html' %}
+{% load static %}
 
 {% block additional-css %}
-    <link rel="stylesheet" href="/static/css/flip-box-index.css">
+    <link rel="stylesheet" href="{% static 'css/flip-box-index.css' %}">
 {% endblock %}
 
 {% block content %}
 
-    {% for item in courses %}
+    {% for item in flipblocks_data_list %}
         <div class="flip-box">
-          <div class="flip-box-inner">
-            <div class="flip-box-front">
-              <h2>{{ item.name }}</h2>
+            <div class="flip-box-inner">
+                <div class="flip-box-front">
+                    <h2>{{ item.name }}</h2>
+                </div>
+                <div class="flip-box-back">
+                    <h2>{{ item.desc }}</h2>
+                </div>
             </div>
-            <div class="flip-box-back">
-              <h2>{{ item.desc }}</h2>
-            </div>
-          </div>
+            {% block url %}
+                <a href="{% url 'category_page' item.id %}">Opacity 0 URL</a>
+            {% endblock %}
         </div>
     {% endfor %}
 

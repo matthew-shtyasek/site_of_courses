@@ -20,5 +20,6 @@ from mainapp import views
 
 urlpatterns = [
     path('', views.index),
+    path('category/<int:pk>', views.category_page, name='category_page'),
     path('admin/', admin.site.urls),
 ]

@@ -1,4 +1,13 @@
-.flip-box {
+.flip-box a {
+  position: absolute;
+  opacity: 0 /*hide URL*/;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+div.flip-box {
   margin-right: 2%;
   float: left;
   background-color: transparent;
