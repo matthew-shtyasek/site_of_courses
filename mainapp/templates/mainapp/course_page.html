@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'mainapp/base.html' %}
 
-</body>
-</html>
+{% block content %}
+    <p>Название: {{ course.name }}</p>
+    <p>Уровень: {{ course.course_category }}</p>
+    <p>Описание: {{ course.desc }}.</p>
+    {% if course.programming_languages.all|length > 1 %}
+        <p>Языки программирования:</p>
+    {% else %}
+        <p>Язык программирования:</p>
+    {% endif %}
+    <ul>
+        {% for lang in course.programming_languages.all %}
+            <li>{{ lang }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if course.technologies.all|length != 0 %}
+        {% if course.technologies.all|length == 1 %}
+            <p>Технология:</p>
+        {% else %}
+            <p>Технологии:</p>
+        {% endif %}
+        <ul>
+            {% for technology in course.technologies.all %}
+                <li>{{ technology }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

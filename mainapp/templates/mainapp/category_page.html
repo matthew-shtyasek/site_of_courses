@@ -1,5 +1,5 @@
 {% extends 'mainapp/index.html' %}
 
 {% block url %}
-    <a href="#">Opacity 0 URL</a>
+    <a href="{% url 'course_page' item.id %}">Opacity 0 URL</a>
 {% endblock %}

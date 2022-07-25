@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Курсы по программированию</title>
+    <title> {{ title_of_page|default:'Курсы по программированию'|capfirst }} </title>
     {% block css %}
         <link rel="stylesheet" href="/static/css/main-menu.css">
         <link rel="stylesheet" href="/static/css/top-block.css">
