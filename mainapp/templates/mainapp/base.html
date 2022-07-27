@@ -1,12 +1,14 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ru">
 
 <head>
     <meta charset="UTF-8">
-    <title> {{ title_of_page|default:'Курсы по программированию'|capfirst }} </title>
+    <title> {{ page_title|default:'Курсы по программированию'|capfirst }} </title>
     {% block css %}
-        <link rel="stylesheet" href="/static/css/main-menu.css">
-        <link rel="stylesheet" href="/static/css/top-block.css">
+        <link rel="stylesheet" href="{% static 'css/main-menu.css' %}">
+        <link rel="stylesheet" href="{% static 'css/top-block.css' %}">
     {% endblock %}
 
     {% block additional-css %}
@@ -19,9 +21,16 @@
 <body>
 <div class="main-menu">
     <ul>
-      <li>
-          <a href="/">{{ main_menu_button_1_text|default:'главная'|capfirst }}</a>
-      </li>
+        <li>
+            <a href="{% url 'main:index' %}">{{ main_menu_button_1_text|default:'главная'|capfirst }}</a>
+        </li>
+        <li>
+            {% if user.is_authenticated %}
+                <a href="#">{{ user }}</a>
+            {% else %}
+                <a href="{% url 'auth:login_page' %}">Вход</a>
+            {% endif %}
+        </li>
     </ul>
 </div>
 
@@ -33,6 +42,11 @@
 
 {% block content %}
 {% endblock %}
+
+<footer style="position: fixed; right: 1vh; bottom: 0">
+    <p>Пользователь: {{ user }}</p>
+</footer>
+
 </body>
 
 </html>
