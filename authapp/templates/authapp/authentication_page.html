@@ -1,10 +1,10 @@
-{% extends 'mainapp/base.html' %}
+{% extends 'authapp/base.html' %}
 
 {% block content %}
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="{{ base_button_value }}">
+    <input type="submit" title="{{ base_button_value }}">
 </form>
 {% if is_login %}
     <a class="button" href="{% url 'auth:register_page' %}">Регистрация</a>

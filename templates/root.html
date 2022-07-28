@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title> {{ page_title|default:'Курсы по программированию'|capfirst }} </title>
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'css/main-menu.css' %}">
+        <link rel="stylesheet" href="{% static 'css/top-block.css' %}">
+    {% endblock %}
+
+    {% block additional-css %}
+    {% endblock %}
+
+    {% block js %}
+    {% endblock %}
+</head>
+
+<body>
+<div class="main-menu">
+    <ul>
+        <li>
+            <a href="{% url 'main:index' %}">{{ main_menu_button_1_text|default:'главная'|capfirst }}</a>
+        </li>
+        <li>
+            {% if user.is_authenticated %}
+                <a href="{% url 'auth:logout' %}">Выход</a>
+            {% else %}
+                <a href="{% url 'auth:login_page' %}">Вход</a>
+            {% endif %}
+        </li>
+    </ul>
+</div>
+
+
+
+<div class="top-block">
+    <h1>{{ top_block_text|default:'категории курсов'|capfirst }}</h1>
+</div>
+
+{% block content %}
+{% endblock %}
+
+<footer style="position: fixed; right: 1vh; bottom: 0">
+    <p>Пользователь: {{ user }}</p>
+</footer>
+
+</body>
+
+</html>
