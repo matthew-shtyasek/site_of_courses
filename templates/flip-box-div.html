@@ -1,0 +1,13 @@
+<div class="flip-box">
+    <div class="flip-box-inner">
+        <div class="flip-box-front" style="background-image: url('{{ item.image.url }}'); background-position: center; background-size: cover">
+            <h2>{{ item.name }}</h2>
+        </div>
+        <div class="flip-box-back">
+            <h2>{{ item.desc }}</h2>
+        </div>
+    </div>
+    {% block url %}
+        <a href="{% url outer_request_url item.id %}">Opacity 0 URL</a>
+    {% endblock %}
+</div>

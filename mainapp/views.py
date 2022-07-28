@@ -9,7 +9,8 @@ def index(request):
     context = {
         'page_title': name,
         'flipblocks_data_list': categories,
-        'top_block_text': name
+        'top_block_text': name,
+        'outer_request_url': 'main:category_page',
     }
     return render(request, template_name='mainapp/index.html', context=context)
 
@@ -21,7 +22,8 @@ def category_page(request, pk):
     context = {
         'page_title': name,
         'top_block_text': name,
-        'flipblocks_data_list': courses
+        'flipblocks_data_list': courses,
+        'outer_request_url': 'main:course_page',
     }
     return render(request, template_name='mainapp/category_page.html', context=context)
 

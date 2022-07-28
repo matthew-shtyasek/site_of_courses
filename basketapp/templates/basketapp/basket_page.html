@@ -1,0 +1,7 @@
+{% extends 'basketapp/base.html' %}
+
+{% block content %}
+    {% for item in courses %}
+        {% include 'flip-box-div.html' %}
+    {% endfor %}
+{% endblock %}
