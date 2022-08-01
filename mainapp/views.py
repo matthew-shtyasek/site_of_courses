@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from basketapp.models import CourseBasket
 from mainapp.models import Course, CourseCategory
 
 
@@ -30,10 +31,18 @@ def category_page(request, pk):
 
 def course_page(request, pk):
     course = Course.objects.get(pk=pk)
+
+    if request.user.is_authenticated:
+        course_user_basket = CourseBasket.objects.filter(user=request.user)
+        in_user_basket = len(course_user_basket.filter(course_id=course.id)) > 0
+    else:
+        in_user_basket = False
+
     name = f'курс «{course}»'
     context = {
         'page_title': name,
         'course': course,
-        'top_block_text': name
+        'top_block_text': name,
+        'in_user_basket': in_user_basket,
     }
     return render(request, template_name='mainapp/course_page.html', context=context)

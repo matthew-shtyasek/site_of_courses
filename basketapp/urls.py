@@ -24,4 +24,6 @@ app_name = 'basketapp'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('add/<int:pk>/', views.add, name='add_course'),
+    path('remove/<int:course_pk>/', views.remove, name='remove_course'),
 ]

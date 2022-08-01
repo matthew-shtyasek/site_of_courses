@@ -1,10 +1,6 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
 
-{% block additional-css %}
-    <link rel="stylesheet" href="{% static 'css/flip-box-index.css' %}">
-{% endblock %}
-
 {% block content %}
 
     {% for item in flipblocks_data_list %}
